@@ -29,3 +29,26 @@ The input to the network contains, for each frame, 26*3 elements (for PedSynth) 
 
 ## PedSynth dataset
 To regenrate the synthetic dataset like PedSynth, you can find all the information [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md). For theoratical insights about PedSynth, you can find technical report [here](https://arxiv.org/abs/2305.00204). You can also download [PedSynth](https://project-arcane.eu/datasets/basic-pedestrians-crossing/) used in our experiments.
+## Requirements
+Our experiments used following settings
+python 3.10.6
+pytorch
+pytprch geometric 
+## Training
+To train our PedGNN, first of all one need to extract the pose coordinated of pedestrians inside the frame and its respective labels of C/NC in the form of `.cvs` file. After that you can run training code. `SkeletonsDataset.py` will preprocess the dataset according to our PedGNN input. `GNN.py` have model structure. Finally, training can be started using `training_pedsynth.py` and other to train PedGNN on single dataset. For combine training settings, please refer to `combine_traiing.py` file. 
+Remember to change the path of your dataset in training file.
+
+## Testing
+To test the PedGNN model on testing set of any dataset, run `model_test.py` file. 
+
+## Citation
+If you are using our work, please cite
+```
+@Misc{wielgosz2023carla,
+    author       = {Wielgosz, Maciej and L{\'o}pez, Antonio M and Riaz, Muhammad Naveed},
+    title        = {{CARLA-BSP}: a simulated dataset with pedestrians},
+    howpublished = {arXiv:2305.00204},
+    year         = {2023}
+}
+```
+
