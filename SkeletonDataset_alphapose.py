@@ -99,7 +99,7 @@ class Skeletons_Dataset(Dataset):
                 ["LEye", "LEar"],
             ]
 
-        elif numberOfJoints == 26:  # CARLA simulator
+        elif numberOfJoints == 26:  # PedSynth using CARLA simulator
             print('carla26')
             self.body_parts_carla = {
                 "crl_root": 0,
@@ -180,10 +180,9 @@ class Skeletons_Dataset(Dataset):
                 "RAnkle": 16,
                 # "Neck": 17,
             }
-            # LShoulder_coords = (x, y)  # extract from your csv
-            # RShoulder_coords = (x, y)  # extract from your csv
-            # self.neck = self.calculate_neck(LShoulder_coords, RShoulder_coords)
+            #Adding 2 additional joints required when use training on PedSynth CARLA joints and test on alphapose extracted joints
             self.body_parts["Neck"] = (self.body_parts["LShoulder"] + self.body_parts["RShoulder"]) / 2
+            self.body_parts["CHip"] = (self.body_parts["LHip"] + self.body_parts["RHip"]) / 2
 
             self.pose_parts = [
                 ["Neck", "Nose"],
@@ -226,9 +225,6 @@ class Skeletons_Dataset(Dataset):
                 "RAnkle": 14,
                 # "Neck": 17,
             }
-            # LShoulder_coords = (x, y)  # extract from your csv
-            # RShoulder_coords = (x, y)  # extract from your csv
-            # self.neck = self.calculate_neck(LShoulder_coords, RShoulder_coords)
             self.body_parts["Neck"] = (self.body_parts["LShoulder"] + self.body_parts["RShoulder"]) / 2
 
             self.pose_parts = [
@@ -648,13 +644,3 @@ class Skeletons_Dataset(Dataset):
     def __getitem__(self, items):
         return self.data[items]
 
-
-'''info = 2
-
-train_dataset = SkeletonsDataset('/media/nriaz/NaveedData/WideCameraPedestrians/data.csv',
-                                 normalization='minmax', target='crossing', info=info,
-                                 numberOfJoints=26, remove_undetected=False)
-
-print('train_dataset len:', len(train_dataset))
-print('Temporal dimension length:', len(train_dataset.data[0].x_temporal))
-print('Shape of each skeletons data (x):', train_dataset.data[0].x_temporal[0].shape)'''

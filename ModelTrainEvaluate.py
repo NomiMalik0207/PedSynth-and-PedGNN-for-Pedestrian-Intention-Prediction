@@ -13,8 +13,7 @@ def print_evaluation_train_val(epoch, train_metrics, val_metrics):
     val_metrics_items = list(val_metrics.items())
                 
     evaluation = 'Epoch:'.ljust(33) + '{:03d}\n'.format(epoch + 1)
-    
-        
+         
     output_p = []
         
     for metricName, metricValue in train_metrics_items:
@@ -204,8 +203,6 @@ def train(model, train_loader, device, optimizer, crit):
     samples = 0
 
     for data in train_loader:
-        import pdb
-        #pdb.set_trace()
         data = data.to(device)
 
         optimizer.zero_grad()

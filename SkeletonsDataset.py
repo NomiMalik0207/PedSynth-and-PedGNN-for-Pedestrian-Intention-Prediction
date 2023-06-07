@@ -36,7 +36,7 @@ class SkeletonsDataset(Dataset):
         print(numberOfJoints)
         
         if numberOfJoints == 25: # JAAD videos + OpenPose
-            print('jaad+openpose25')
+            #print('jaad+openpose25')
             self.body_parts = {
                 "Nose": 0,
                 "Neck": 1,
@@ -93,8 +93,8 @@ class SkeletonsDataset(Dataset):
                 ["LEye", "LEar"],
             ]
             
-        elif numberOfJoints == 26: # CARLA simulator
-            print('carla26')
+        elif numberOfJoints == 26: # PedSynth CARLA simulator
+            #print('carla26')
             self.body_parts = {
                 "crl_root": 0,
                 "crl_hips__C": 1,
@@ -154,7 +154,7 @@ class SkeletonsDataset(Dataset):
             ]
 
         elif numberOfJoints == 17:  # Alphpose+coco simulator
-            print('jaad+alpha17')
+            #print('jaad+alpha17')
             self.body_parts = {
                 "Nose": 0,
                 "LEye": 1,
@@ -173,12 +173,12 @@ class SkeletonsDataset(Dataset):
                 "RKnee": 14,
                 "LAnkle": 15,
                 "RAnkle": 16,
-                #"Neck": 17,
             }
-            #LShoulder_coords = (x, y)  # extract from your csv
-           # RShoulder_coords = (x, y)  # extract from your csv
-            #self.neck = self.calculate_neck(LShoulder_coords, RShoulder_coords)
-            self.body_parts["Neck"] = (self.body_parts["LShoulder"]+self.body_parts["RShoulder"]) /2
+         
+            #Adding 2 additional joints required when use training on PedSynth CARLA joints and test on alphapose extracted joints
+            self.body_parts["Neck"] = (self.body_parts["LShoulder"] + self.body_parts["RShoulder"]) / 2
+            self.body_parts["CHip"] = (self.body_parts["LHip"] + self.body_parts["RHip"]) / 2
+
 
             self.pose_parts = [
                 ["Neck", "Nose"],
@@ -221,11 +221,8 @@ class SkeletonsDataset(Dataset):
                 "RKnee": 12,
                 "LAnkle": 13,
                 "RAnkle": 14,
-                # "Neck": 17,
             }
-            # LShoulder_coords = (x, y)  # extract from your csv
-            # RShoulder_coords = (x, y)  # extract from your csv
-            # self.neck = self.calculate_neck(LShoulder_coords, RShoulder_coords)
+         
             self.body_parts["Neck"] = (self.body_parts["LShoulder"] + self.body_parts["RShoulder"]) / 2
 
             self.pose_parts = [
@@ -648,13 +645,3 @@ class SkeletonsDataset(Dataset):
     def __getitem__(self, items):
         return self.data[items]
 
-
-'''info = 2
-
-train_dataset = SkeletonsDataset('/media/nriaz/NaveedData/WideCameraPedestrians/data.csv',
-                                 normalization='minmax', target='crossing', info=info,
-                                 numberOfJoints=26, remove_undetected=False)
-
-print('train_dataset len:', len(train_dataset))
-print('Temporal dimension length:', len(train_dataset.data[0].x_temporal))
-print('Shape of each skeletons data (x):', train_dataset.data[0].x_temporal[0].shape)'''
