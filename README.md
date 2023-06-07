@@ -26,3 +26,6 @@ The layers of the model are detailed in the following table:
 |     Softmax                   |     [-1, 2]        |     [-1, 2]         |
 
 The input to the network contains, for each frame, 26*3 elements (for PedSynth) because in CARLA there are 26 different joints, and we input the 3D (x,y, cs) coordinates of them.
+
+##PedSynth dataset
+To regenrate the synthetic dataset like PedSynth, you can find all the information [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md). For theoratical insights about PedSynth, you can find technical report [here](https://arxiv.org/abs/2305.00204). You can also download [PedSynth](https://project-arcane.eu/datasets/basic-pedestrians-crossing/) used in our experiments.
