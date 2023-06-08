@@ -35,7 +35,7 @@ python 3.10.6
 pytorch
 pytprch geometric 
 ## Training
-To train our PedGNN, first of all one need to extract the pose coordinated of pedestrians inside the frame and its respective labels of C/NC in the form of `.cvs` file. After that you can run training code. `SkeletonsDataset.py` will preprocess the dataset according to our PedGNN input. `GNN.py` have model structure. Finally, training can be started using `training_pedsynth.py` and other to train PedGNN on single dataset. For combine training settings, please refer to `combine_traiing.py` file. 
+To train our PedGNN, first of all one need to extract the pose coordinated of pedestrians inside the frame and its respective labels of C/NC in the form of `.cvs` file. After that you can run training code. `SkeletonsDataset.py` will preprocess the dataset according to our PedGNN input. `GNN.py` have model structure. Finally, training can be started using `train_pedsynth.py` and other to train PedGNN on single dataset. For combine training settings, please refer to `combine_training.py` file. 
 Remember to change the path of your dataset in training file.
 
 ## Testing
