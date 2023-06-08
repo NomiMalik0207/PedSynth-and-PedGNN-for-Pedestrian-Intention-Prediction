@@ -25,32 +25,17 @@ import torch
 
 info = 8
 
-train_dataset = SkeletonsDataset('/home/nriaz/PycharmProjects/abel/Code/data/carla_joints_using_alphapose/train_carla_Alphapose_duplicate.csv',
+train_dataset = SkeletonsDataset('/path/to/dataset/csv/',
                                  normalization='minmax', target='crossing', info=info,
                                  numberOfJoints=17, remove_undetected=False)
-'''val_dataset = SkeletonsDataset('/media/nriaz/NaveedData/PIE_dataset/train_val_test/set_05_06.csv',
-                                 normalization='minmax', target='crossing', info=info,
-                                 numberOfJoints=17, remove_undetected=False)'''
-'''val_dataset = SkeletonsDataset('/home/nriaz/PycharmProjects/abel/Code/data/carla_joints_using_alphapose/train_carla_Alphapose.csv',normalization='minmax', target='crossing', info=info,
-                                 numberOfJoints=17, remove_undetected=False)'''
-val_dataset = SkeletonsDataset('/home/nriaz/PycharmProjects/abel/Code/data/carla_joints_using_alphapose/val_carla_Alphapose_duplicate.csv',
+val_dataset = SkeletonsDataset('/path/to/dataset/csv/',
                                  normalization='minmax', target='crossing', info=info,
                                  numberOfJoints=17, remove_undetected=False)
 
 
 
-#print('train_dataset len:', len(train_dataset))
-#print('Temporal dimension length:', len(train_dataset.data[0].x_temporal))
-#print('Shape of each skeletons data (x):', train_dataset.data[0].x_temporal[0].shape)
+
 train_dataset.loadedData[['video','frame','crossing']]
-#val_dataset.loadedData[['video','frame','skeleton','crossing']]
-'''totalRows = len(train_dataset.loadedData)
-crossingRows = len(train_dataset.loadedData[train_dataset.loadedData['crossing']==True])
-nocrossingRows = len(train_dataset.loadedData[train_dataset.loadedData['crossing']!=True])
-
-print('Training dataset total rows:', totalRows)
-print('Training dataset crossing class samples:', crossingRows)
-print('Training dataset not-crossing class samples:', nocrossingRows)'''
 
 numberOfClasses = 2
 import pdb
@@ -86,7 +71,6 @@ device = torch.device('cuda')
 torch.cuda.set_device(0)
 model = SpatialTemporalGNN(embed_dim, numberOfClasses, numberOfNodes, net='GConvGRU', filterSize=3).to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.002, weight_decay=0.001)
-#crit = torch.nn.BCEWithLogitsLoss()#weight=class_weights)
 crit = torch.nn.BCELoss()#weight=class_weights)
 train_loader = DataLoader(train_dataset, batch_size=batch_size)
 val_loader = DataLoader(val_dataset, batch_size=batch_size)

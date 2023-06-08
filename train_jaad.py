@@ -25,15 +25,9 @@ info = 32
 
 train_dataset = Skeletons_Dataset('/home/nriaz/PycharmProjects/abel/Code/Abel/jaad_ped_graph/Jaad_323/jaad_default_train.csv',numberOfJoints=17,
                                  normalization='minmax', target='cross', info=info)
-#train_dataset.loadedData[['video','frame','decision_point','keypoints','crossing']]
 
 val_dataset = Skeletons_Dataset('/home/nriaz/PycharmProjects/abel/Code/Abel/jaad_ped_graph/Jaad_323/jaad_default_val.csv',numberOfJoints=17, normalization='minmax',
                                target='cross', info=info)
-
-
-
-#val_dataset = SkeletonsDataset('/home/nriaz/PycharmProjects/abel/Code/Abel/JAAD/val_annotations_with_skeletons_maciek.csv', normalization='minmax',
-                               #target='cross', info=info)
 
 val_dataset.shuffle()
 
@@ -67,7 +61,6 @@ num_epochs = 100
 batch_size = 500
 
 device = torch.device('cpu')
-#model = SpatialTemporalGNN(embed_dim, numberOfClasses, numberOfNodes, net='GConvGRU', filterSize=3).to(device)
 model = pedMondel(False, False, False, False, 2)
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.005)
 crit = torch.nn.BCELoss()  # weight=class_weights)
