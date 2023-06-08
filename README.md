@@ -1,5 +1,6 @@
 # Synthetic Data Generation Framework, Dataset, and Efficient Deep Model for Pedestrian Intention Prediction
 This repo proves that sythtic dataset along with real world dataset can boost the performance of models for Pedestrian Intention Prediction
+
 ## abstract
 Pedestrian intention prediction is crucial for autonomous driving. In particular, knowing if pedestrians are going to cross in front of the ego-vehicle is core to performing safe and comfortable maneuvers. Creating accurate and fast models that predict such intentions from sequential images is challenging. A factor contributing to this is the lack of datasets with diverse crossing and non-crossing (C/NC) scenarios. We address this scarceness by introducing a framework, named ARCANE, which allows programmatically generating synthetic datasets consisting of C/NC video clip samples. As an example, we use ARCANE to generate a large and diverse dataset named PedSynth. We will show how PedSynth complements widely used real-world datasets such as JAAD and PIE, so enabling more accurate models for C/NC prediction. Considering the onboard deployment of C/NC prediction models, we also propose a deep model named PedGNN, which is fast and has a very low memory footprint. PedGNN is based on a GNN-GRU architecture that takes a sequence of pedestrian skeletons as input to predict crossing intentions.  
 
@@ -31,9 +32,9 @@ The input to the network contains, for each frame, 26*3 elements (for PedSynth) 
 To regenrate the synthetic dataset like PedSynth, you can find all the information [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md). For theoratical insights about PedSynth, you can find technical report [here](https://arxiv.org/abs/2305.00204). You can also download [PedSynth](https://project-arcane.eu/datasets/basic-pedestrians-crossing/) used in our experiments.
 ## Requirements
 Our experiments used following settings
-python 3.10.6
-pytorch
-pytprch geometric 
+* python 3.10.6
+* pytorch 1.10
+* pytorch geometric 
 ## Training
 To train our PedGNN, first of all one need to extract the pose coordinated of pedestrians inside the frame and its respective labels of C/NC in the form of `.cvs` file. After that you can run training code. `SkeletonsDataset.py` will preprocess the dataset according to our PedGNN input. `GNN.py` have model structure. Finally, training can be started using `train_pedsynth.py` and other to train PedGNN on single dataset. For combine training settings, please refer to `combine_training.py` file. 
 Remember to change the path of your dataset in training file.
