@@ -33,8 +33,9 @@ To regenrate the synthetic dataset like PedSynth, you can find all the informati
 ## Requirements
 Our experiments used following settings
 * python 3.10.6
-* pytorch 1.10
+* pytorch 1.10 with cuda 10.2
 * pytorch geometric 
+or run `environment.yml' as a complete environment.
 
 ## Data preprocessing
 First of all, we extracted all the pedestrian skeletons from the video frames of ([JAAD](https://data.nvision2.eecs.yorku.ca/JAAD_dataset/)/[PIE](https://data.nvision2.eecs.yorku.ca/PIE_dataset/)) using bounding box values and their respective ground-truth of C/NC. Because the annotatrion files of JAAD and PIE are in .xml format. We change it to a single .csv file. To do so, please use `data_preprocessing/jaad_xml_to_csv.py, data_preprocessing/pie_xml_to_csv.py`. 
