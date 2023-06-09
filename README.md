@@ -34,7 +34,8 @@ To regenrate the synthetic dataset like PedSynth, you can find all the informati
 Our experiments used following settings
 * python 3.10.6
 * pytorch 1.10 with cuda 10.2
-* pytorch geometric 
+* pytorch geometric. 
+
 or run `environment.yml' as a complete environment.
 
 ## Data preprocessing
