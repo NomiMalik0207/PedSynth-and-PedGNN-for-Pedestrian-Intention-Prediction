@@ -50,7 +50,7 @@ To test the PedGNN model on testing set of any dataset, run `model_test.py` file
 ## Citation
 If you are using our work, please cite
 ```
-@Misc{Riaz2023PedSynth,
+@inproceedings{Riaz2023PedSynth,
     author       = {Riaz, Muhammad Naveed, and Wielgosz, Maciej and Romera, Abel Garc{\'i}a, and L{\'o}pez, Antonio M},
     title        = {Synthetic Data Generation Framework, Dataset, and Efficient Deep Model for Pedestrian Intention Prediction},
     booktitle    = {2023 IEEE Intelligent Transportation Systems Conference (ITSC)}
