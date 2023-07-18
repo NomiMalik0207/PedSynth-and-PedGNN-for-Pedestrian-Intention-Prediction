@@ -57,7 +57,6 @@ If you are using our work, please cite
     year         = {2023}
 }
 ```
-and
 
 ```
 @Misc{wielgosz2023carla,
