@@ -4,13 +4,11 @@ By Muhammad Naveed Riaz, Maciej Wielgosz, Abel García Romera, Antonio M. López
 **Abstract:**Pedestrian intention prediction is crucial for autonomous driving. In particular, knowing if pedestrians are going to cross in front of the ego-vehicle is core to performing safe and comfortable maneuvers. Creating accurate and fast models that predict such intentions from sequential images is challenging. A factor contributing to this is the lack of datasets with diverse crossing and non-crossing (C/NC) scenarios. We address this scarceness by introducing a framework, named ARCANE, which allows programmatically generating synthetic datasets consisting of C/NC video clip samples. As an example, we use ARCANE to generate a large and diverse dataset named PedSynth. We will show how PedSynth complements widely used real-world datasets such as JAAD and PIE, so enabling more accurate models for C/NC prediction. Considering the onboard deployment of C/NC prediction models, we also propose a deep model named PedGNN, which is fast and has a very low memory footprint. PedGNN is based on a GNN-GRU architecture that takes a sequence of pedestrian skeletons as input to predict crossing intentions. 
 
 ## Introduction
-This is official repo of our article titles as 'Synthetic Data Generation Framework, Dataset, and Efficient Deep Model for Pedestrian Intention Prediction' accepted in ITSC 2023. This repo proves that sythtic dataset along with real world dataset can boost the performance of models for Pedestrian Intention Prediction.
+Welcome to the official repository for our article, "Synthetic Data Generation Framework, Dataset, and Efficient Deep Model for Pedestrian Intention Prediction," which was accepted in ITSC 2023. Our research demonstrates that incorporating a synthetic dataset alongside real-world data can significantly enhance the performance of models for Pedestrian Intention Prediction.
 
- 
 
 ## Spatial-Temporal Graph Convolutional Network
-The structure of our proposed Spatial-Temporal model. For a set of *n* frames with their *n* skeletons, predict if in a future frame the pedestrian will perform the action of crossing or not. That is, from the movements and trajectory of the pedestrian during *n* frames (grouped using a sliding window), predict whether he or she will cross the street or not in the near future.
-
+Our proposed Spatial-Temporal model is structured to predict whether a pedestrian will cross the street in a future frame. This is based on analyzing a set of *n* frames and their corresponding *n* skeletons, using a sliding window to group the movements and trajectory of the pedestrian. The goal is to accurately determine if the pedestrian will act as a crossing or not in the near future.
 The layers of the model are detailed in the following table:
 
 |     Layer                     |     Input shape    |     Output shape    |
@@ -33,7 +31,7 @@ The layers of the model are detailed in the following table:
 The input to the network contains, for each frame, 26*3 elements (for PedSynth) because in CARLA there are 26 different joints, and we input the 3D (x,y, cs) coordinates of them.
 
 ## PedSynth dataset
-To regenrate the synthetic dataset like PedSynth, you can find all the information about ARCANE and PedSynth [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md). For theoratical insights about ARCANE and PedSynth, you can find technical report [here](https://arxiv.org/abs/2305.00204). You can also download [PedSynth](http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz) used in our experiments.
+If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth at https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md. To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available at https://arxiv.org/abs/2305.00204. Additionally, you can download the PedSynth used in our experiments from http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz.
 ## Requirements
 Our experiments used following settings
 * python 3.10.6
@@ -43,10 +41,9 @@ Our experiments used following settings
 or run `environment.yml` to have all the requirements.
 
 ## Data preprocessing
-First of all, we extracted all the pedestrian skeletons from the video frames of ([JAAD](https://data.nvision2.eecs.yorku.ca/JAAD_dataset/)/[PIE](https://data.nvision2.eecs.yorku.ca/PIE_dataset/)) using bounding box values and their respective ground-truth of C/NC. Because the annotatrion files of JAAD and PIE are in .xml format. We change it to a single .csv file. To do so, please use `data_preprocessing/jaad_xml_to_csv.py, data_preprocessing/pie_xml_to_csv.py`. 
+To begin with, we utilized bounding box values and the corresponding C/NC ground-truth to extract all pedestrian skeletons from the video frames of JAAD and PIE. Since the annotation files for both are in .xml format, we converted them into a single .csv file using `data_preprocessing/jaad_xml_to_csv.py` and `data_preprocessing/pie_xml_to_csv.py` scripts. 
 ## Training
-To train our PedGNN, first of all one need to extract the pose coordinated of pedestrians inside the frame and its respective labels of C/NC in the form of `.cvs` file. After that you can run training code. `SkeletonsDataset.py` will preprocess the dataset according to our PedGNN input. `GNN.py` have model structure. Finally, training can be started using `train_pedsynth.py` and other to train PedGNN on single dataset. For combine training settings, please refer to `combine_training.py` file. 
-Remember to change the path of your dataset in training file.
+The first step to train our PedGNN is to extract the pose coordinates of pedestrians in the frame, along with their respective C/NC labels, in the form of a `.cvs` file. Once this is done, the training code can be run. The `SkeletonsDataset.py` file pre-processes the dataset according to PedGNN's input needs, while the `GNN.py` file contains the model structure. To train PedGNN on a single dataset, use `train_pedsynth.py` and others. For combined training settings, refer to the `combine_training.py` file. Remember to change the path of your dataset in the training file.
 
 ## Testing
 To test the PedGNN model on testing set of any dataset, run `model_test.py` file. 
