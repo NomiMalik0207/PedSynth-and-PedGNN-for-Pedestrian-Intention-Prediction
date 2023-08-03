@@ -41,7 +41,7 @@ Our experiments used following settings
 or run `environment.yml` to have all the requirements.
 
 ## Data preprocessing
-To begin with, we utilized bounding box values and the corresponding C/NC ground-truth to extract all pedestrian skeletons from the video frames of JAAD and PIE. Since the annotation files for both are in .xml format, we converted them into a single .csv file using `data_preprocessing/jaad_xml_to_csv.py` and `data_preprocessing/pie_xml_to_csv.py` scripts. 
+To begin with, we utilized bounding box values and the corresponding C/NC ground-truth to extract all pedestrian skeletons from the video frames of [JAAD](https://data.nvision2.eecs.yorku.ca/JAAD_dataset/) and [PIE](https://data.nvision2.eecs.yorku.ca/PIE_dataset/). Since the annotation files for both are in .xml format, we converted them into a single .csv file using `data_preprocessing/jaad_xml_to_csv.py` and `data_preprocessing/pie_xml_to_csv.py` scripts. 
 ## Training
 The first step to train our PedGNN is to extract the pose coordinates of pedestrians in the frame, along with their respective C/NC labels, in the form of a `.cvs` file. Once this is done, the training code can be run. The `SkeletonsDataset.py` file pre-processes the dataset according to PedGNN's input needs, while the `GNN.py` file contains the model structure. To train PedGNN on a single dataset, use `train_pedsynth.py` and others. For combined training settings, refer to the `combine_training.py` file. Remember to change the path of your dataset in the training file.
 
