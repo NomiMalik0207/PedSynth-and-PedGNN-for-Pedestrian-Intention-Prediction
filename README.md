@@ -31,7 +31,7 @@ The layers of the model are detailed in the following table:
 The input to the network contains, for each frame, 26*3 elements (for PedSynth) because in CARLA there are 26 different joints, and we input the 3D (x,y, cs) coordinates of them.
 
 ## PedSynth dataset
-If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth at https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md. To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available at https://arxiv.org/abs/2305.00204. Additionally, you can download the PedSynth used in our experiments from http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz.
+If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth [here] (https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md). To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available [here] (https://arxiv.org/abs/2305.00204). Additionally, you can download the PedSynth used in our experiments from [here] (http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz).
 ## Requirements
 Our experiments used following settings
 * python 3.10.6
