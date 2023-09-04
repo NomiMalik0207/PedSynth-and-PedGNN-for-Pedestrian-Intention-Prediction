@@ -108,7 +108,7 @@ for epoch in range(num_epochs):
     if num_epochs <= 25 or epoch % 10 == 0:
         print_evaluation_train_val(epoch, train_metrics, val_metrics)
 
-    modelFileName = '/home/nriaz/PycharmProjects/abel/Code/carla_alphapose_trained_models/carla' + str(info)
+    modelFileName = '/path/to/save/model/' + str(info)
     torch.save(model.state_dict(), modelFileName + 'Epoch_' + str(epoch))
 
     metrics_df_train = pd.DataFrame(metrics_train)
