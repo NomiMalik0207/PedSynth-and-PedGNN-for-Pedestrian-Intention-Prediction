@@ -32,6 +32,9 @@ The input to the network contains, for each frame, 26*3 elements (for PedSynth) 
 
 ## PedSynth dataset
 If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md) . To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available [here](https://arxiv.org/abs/2305.00204). Additionally, you can download the PedSynth used in our experiments from [here](http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz).
+
+As an example, here is trimmed PedSynth clips PedSynth as visualizations.
+![PedSynth_samples.mp4](videos and results/PedSynth_samples.mp4)
 ## Requirements
 Our experiments used following settings
 * python 3.10.6
@@ -46,7 +49,12 @@ To begin with, we utilized bounding box values and the corresponding C/NC ground
 The first step to train our PedGNN is to extract the pose coordinates of pedestrians in the frame, along with their respective C/NC labels, in the form of a `.cvs` file. Once this is done, the training code can be run. The `SkeletonsDataset.py` file pre-processes the dataset according to PedGNN's input needs, while the `GNN.py` file contains the model structure. To train PedGNN on a single dataset, use `train_pedsynth.py` and others. For combined training settings, refer to the `combine_training.py` file. Remember to change the path of your dataset in the training file.
 
 ## Testing
-To test the PedGNN model on testing set of any dataset, run `model_test.py` file. 
+To test the PedGNN model on testing set of any dataset, run `model_test.py` file.
+
+## Model Visualizations
+![video_0005.gif](videos and results/video_0005.gif)
+![video_0197.gif](videos and results/video_0197.gif)
+![video_0245.gif](videos and results/video_0245.gif)
 
 ## Citation
 If you are using our work, please cite
