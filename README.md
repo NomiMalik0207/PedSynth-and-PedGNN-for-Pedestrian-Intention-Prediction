@@ -34,7 +34,7 @@ The input to the network contains, for each frame, 26*3 elements (for PedSynth) 
 If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md) . To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available [here](https://arxiv.org/abs/2305.00204). Additionally, you can download the PedSynth used in our experiments from [here](http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz).
 
 As an example, here is trimmed PedSynth clips PedSynth as visualizations.
-![PedSynth_samples1.mp4](results/PedSynth_samples1.gif)
+![PedSynth_samples2.mp4](results/PedSynth_samples2.gif)
 ## Requirements
 Our experiments used following settings
 * python 3.10.6
