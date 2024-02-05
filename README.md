@@ -56,9 +56,8 @@ To test the PedGNN model on testing set of any dataset, run `model_test.py` file
 
 <table>
   <tr>
-    <td><img src="results/video_02171.gif" alt="Video 1"></td>
-    <td><img src="results/video_0245.gif" alt="Video 2"></td>
-    <td><img src="results/video_0197.gif" alt="Video 3"></td>
+    <td><img src="results/video_02171-1.gif" alt="Video 1"></td>
+    <td><img src="results/video_0245-1.gif" alt="Video 2"></td>
   </tr>
 </table>
 
