@@ -55,6 +55,12 @@ To test the PedGNN model on testing set of any dataset, run `model_test.py` file
 #Videos from PedSynth
 
 #Videos from JAAD
+<style>
+  img {
+    margin: 0;
+    padding: 0;
+  }
+</style>
 ![video_02171.gif](results/video_02171.gif)
 ![video_0245.gif](results/video_0245.gif)
 ![video_0197.gif](results/video_0197.gif)
