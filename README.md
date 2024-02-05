@@ -52,9 +52,9 @@ The first step to train our PedGNN is to extract the pose coordinates of pedestr
 To test the PedGNN model on testing set of any dataset, run `model_test.py` file.
 
 ## Model Visualizations
-![video_0005.gif](videos and results/video_0005.gif)
-![video_0197.gif](videos and results/video_0197.gif)
-![video_0245.gif](videos and results/video_0245.gif)
+![video_0005.gif](results/video_0005.gif)
+![video_0197.gif](results/video_0197.gif)
+![video_0245.gif](results/video_0245.gif)
 
 ## Citation
 If you are using our work, please cite
