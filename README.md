@@ -90,7 +90,7 @@ This research has been supported by the Spanish Grant Ref. PID2020-115734RB-C21 
 
 ## Acknowledgements
 
-Antonio M. López acknowledges the financial support to his general research activities given by ICREA under the ICREA Academia Program. Muhammad Naveed Riaz acknowledges the financial support to perform his Ph.D. given by the grant 2021 FI SDUR/00281. The authors acknowledge the support of the Generalitat de Catalunya CERCA Program and its ACCIO agency to CVC’s general activities.
+Antonio M. López acknowledges the financial support to his general research activities given by ICREA under the ICREA Academia Program. Muhammad Naveed Riaz acknowledges the financial support to perform his Ph.D. given by the grant 2021 FI SDUR/00281. Naveed and Antonio acknowledge the support provided by SGR 2021 ADAS (ref. 2021 SGR 01621; Departament de Recerca i Universitats of the Generalitat de Catalunya) during the FI fellowship application. The authors acknowledge the support of the Generalitat de Catalunya CERCA Program and its ACCIO agency to CVC’s general activities.
 
 
 
