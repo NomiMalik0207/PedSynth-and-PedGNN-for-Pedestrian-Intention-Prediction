@@ -34,8 +34,7 @@ The input to the network contains, for each frame, 26*3 elements (for PedSynth) 
 If you want to create a synthetic dataset similar to PedSynth, you can access all the necessary information about ARCANE and PedSynth [here](https://github.com/wielgosz-info/carla-pedestrians/blob/main/README.md) . To gain a deeper understanding of ARCANE and PedSynth, you can refer to the technical report available [here](https://arxiv.org/abs/2305.00204). Additionally, you can download the PedSynth used in our experiments from [here](http://datasets.cvc.uab.es/PedSynth/wide_camera_pedestrians.tar.gz).
  
 The PedSynth dataset is provided by the Computer Vision Center (UAB) and may be used for research and commercial purposes, and it is subject to the Creative Commons Attribution-Commercial-ShareAlike 4.0. A summary of the CC-BY-SA 4.0 licensing terms can be found [here](https://creativecommons.org/licenses/by-sa/4.0/deed.en). While we strive to generate precise data, all information is presented 'as is' without any express or implied warranties. We explicitly disclaim all representations and warranties regarding the validity, scope, accuracy, completeness, safety, or utility of the licensed content, including any implied warranties of merchantability, fitness for a particular purpose, or otherwise.
- 
-Thanks! Best wishes,
+
 As an example, here is trimmed PedSynth clips as visualizations.
 ![PedSynth_samples2.mp4](results/PedSynth_samples2.gif)
 ## Requirements
